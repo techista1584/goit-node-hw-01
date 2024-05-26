@@ -1,8 +1,7 @@
-//const {Command} = require("commander");
 import { Command } from "commander";
 const program = new Command();
 
-import { listContacts, getContactById, removeContact, addContact } from "./contacts";
+import { listContacts, getContactById, removeContact, addContact } from "./contacts.js";
 
 program
     .option("-a, --action <type>")
@@ -24,12 +23,12 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
             break;
         
         case "get":
-            const contactsById = await getContactById(id);
-            console.log(contactsById);
+            const contactById = await getContactById(id);
+            console.log(contactById);
             break;
         
         case "add":
-            const newContact = await addContact({ name, email, phone });
+            const newContact = await addContact(name, email, phone);
             console.log(newContact);
             break;
         
@@ -42,3 +41,5 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
             console.warn("\x1B[31m Unknown action type!");
     }
 };
+
+invokeAction(argv);
