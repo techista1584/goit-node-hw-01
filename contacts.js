@@ -1,12 +1,7 @@
-//contacts fs = require('fs/promises');
 import fs from "fs/promises";
-//const path = require('path');
 import path from "path";
-//const {nanoid} = require('nanoid');
 import { nanoid } from "nanoid";
-import { readFile } from "fs";
 
-//joins the db and contacts to come up with the path = ./db/contacts.json
 const contactsPath = path.join("db", "contacts.json");
 
 const listContacts = async () => {
@@ -31,7 +26,7 @@ const getContactById = async (contactId) => {
 const removeContact = async (contactId) => {
     try {
         const contacts = await listContacts();
-        const result = contacts.findIndex((item) => item.id === contactId);
+        const index = contacts.findIndex((item) => item.id === contactId);
         if (index === -1) {
             return null;
         }
