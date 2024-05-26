@@ -1,4 +1,4 @@
-# goit-node-hw-01-test
+# goit-node-hw-01
 <p>list contacts action:</p>
 <img src="images\list_action.JPG">
 
